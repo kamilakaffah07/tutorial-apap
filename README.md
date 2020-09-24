@@ -71,6 +71,9 @@ https://dzone.com/articles/understanding-the-uri-param-and-query-param-with-r
 ### What I did not understand
 
 Bagaimana cara kerja dari spring initializr?
+
 Bagaimana cara kerja dari tiga dependencies (Spring Web, Thymeleaf, dan Spring Boot DevTools) yang digunakan pada tutorial kali ini?
+
 Apa yang dilakukan class BMI dan BMIController?
+
 Mengapa model dan controller harus dibuat package?
