@@ -5,6 +5,8 @@ import apap.tutorial.traveloke.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,7 +55,7 @@ public class HotelController {
         return "viewall-hotel";
     }
 
-    // Reuest handler untuk method getHotelByIdHotel
+    // Reqest param untuk method getHotelByIdHotel
     @RequestMapping("hotel/view")
     public String detailHotel(
             @RequestParam(value = "idHotel") String idHotel,
@@ -67,5 +69,21 @@ public class HotelController {
 
         return "view-hotel";
     }
+
+    // Path Variable untuk method getHotelByIdHotel
+    @GetMapping(value= "/hotel/view/id-hotel/{idHotel}")
+    public String viewHotelWithPathVariable(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model
+    ){
+        // Mendapatkan HotelModel sesuaidengan idHotel
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+
+        //Add variabel HotelModel ke 'hotel' untuk dirender pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "view-hotel";
+    }
+
 
 }
