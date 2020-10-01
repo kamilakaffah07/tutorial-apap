@@ -6,23 +6,23 @@
 
 ## Tutorial 2
 
-###Pertanyaan 1: Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut: http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxxApa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+### Pertanyaan 1: Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut: http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxxApa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
 
 Ketika membuka link tersebut, object hotel akan ditambahkan ke dalam listHotel. Namun, akan terjadi error karena HotelController memanggil template add-hotel sedangkan file add-hotel.html belum dibuat.
 
-###Pertanyaan 2: Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+### Pertanyaan 2: Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
 
 @Autowired menggunakan konsep Dependency Injection. Berdasarkan code kelas di kelas controller, terlihat bahwa HotelController memiliki properti hotelService, dimana kelas HotelController tidak akan bisa terbentuk tanpa terbentuknya hotelService. Selanjutnya, pada properti hotelService terdapat anotasi @Autowired yang digunakan untuk menginjeksikan bean HotelService. Selanjutnya, secara otomatis kelas HotelController akan berisikan interface hotelService.
 
-###Pertanyaan 3: Pertanyaan 3: Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut: http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+### Pertanyaan 3: Pertanyaan 3: Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut: http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
 
 Link tersebut merupakan RequestParam yang akan menambahkan object hotel ke listHotel. Namun, RequestParam tidak berhasil dan mengeluarkan error karena RequestParam tersebut tidak memiliki parameter nomor telepon. Hal itu menyebabkan object hotel tidak dapat dibuat karena kekurangan parameter untuk constructor.
 
-###Pertanyaan 4: Jika Papa APAP ingin melihat Hotel dengan nama Papa APAP, link apa yang harus diakses?
+### Pertanyaan 4: Jika Papa APAP ingin melihat Hotel dengan nama Papa APAP, link apa yang harus diakses?
 
 Papa APAP bisa membuka link http://localhost:8080/hotel/view?idHotel=1/ atau http://localhost:8080/hotel/view/id-hotel/1
 
-###Pertanyaan 5: Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+### Pertanyaan 5: Tambahkan 1 contoh Hotel lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/hotel/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
 
 Ketika link tersebut diakses maka ia akan menampilkan informasi semua object hotel yang sudah dibuat. Berikut adalah hasil screenshotnya.
 
