@@ -36,4 +36,28 @@ public class HotelInMemoryService implements HotelService {
         }
         return listHotel.get(indexHotel);
     }
+
+    @Override
+    public HotelModel udpateNomorTeleponHotel(String idHotel, String noTeleponBaru){
+        int indexHotel = 0;
+        for (int i = 0; i<listHotel.size(); i++){
+            if (listHotel.get(i).getIdHotel() == idHotel){
+                indexHotel = i;
+            }
+        }
+        listHotel.get(indexHotel).setNoTelepon(noTeleponBaru);
+        return listHotel.get(indexHotel);
+    }
+
+    @Override
+    public void deleteHotel(String idHotel){
+        int indexHotel = 0;
+        for (int i = 0; i<listHotel.size(); i++){
+            if (listHotel.get(i).getIdHotel() == idHotel){
+                indexHotel = i;
+            }
+        }
+        listHotel.remove(indexHotel);
+    }
+
 }

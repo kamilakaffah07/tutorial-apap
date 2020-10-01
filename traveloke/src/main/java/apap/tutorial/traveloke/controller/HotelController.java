@@ -85,5 +85,35 @@ public class HotelController {
         return "view-hotel";
     }
 
+    // Path Variable untuk method updateNomorTeleponHotel
+    @GetMapping(value= "hotel/update/id-hotel/{idHotel}/no-telepon/{noTeleponBaru}")
+    public String updateNoTeleponHotel(
+            @PathVariable(value = "idHotel") String idHotel,
+            @PathVariable(value = "noTeleponBaru") String noTeleponBaru,
+            Model model
+    ){
+        // Mendapatkan HotelModel sesuaidengan idHotel
+        HotelModel hotel = hotelService.udpateNomorTeleponHotel(idHotel, noTeleponBaru);
+
+        //Add variabel HotelModel ke 'hotel' untuk dirender pada thymeleaf
+        model.addAttribute("hotel", hotel);
+
+        return "view-hotel-update";
+    }
+
+    //Path Variable untuk method deleteHotel
+    @GetMapping(value = "hotel/delete/id-hotel/{idHotel}")
+    public String deleteHotel(
+            @PathVariable(value = "idHotel") String idHotel,
+            Model model
+    ){
+        hotelService.deleteHotel(idHotel);
+        // Add variabel id hotel ke 'idHotel' untuk dirender pada thymeleaf
+        model.addAttribute("idHotel", idHotel);
+
+        // Return view template yang digunakan
+        return "delete-hotel";
+    }
+
 
 }
