@@ -28,36 +28,49 @@ public class HotelInMemoryService implements HotelService {
 
     @Override
     public HotelModel getHotelByIdHotel(String idhotel){
-        int indexHotel = 0;
-        for (int i = 0; i<listHotel.size(); i++){
-            if (listHotel.get(i).getIdHotel() == idhotel){
-                indexHotel = i;
+        int indexx = 0;
+        if (listHotel.get(indexx).getIdHotel().equals(idhotel)){
+            return listHotel.get(indexx);
+        } else {
+            for (HotelModel elemenHotel : listHotel){
+                indexx++;
+                if (elemenHotel.getIdHotel().equals(idhotel)){
+                    return elemenHotel;
+                }
             }
         }
-        return listHotel.get(indexHotel);
+        return listHotel.get(indexx-1);
     }
+
 
     @Override
     public HotelModel udpateNomorTeleponHotel(String idHotel, String noTeleponBaru){
-        int indexHotel = 0;
-        for (int i = 0; i<listHotel.size(); i++){
-            if (listHotel.get(i).getIdHotel() == idHotel){
-                indexHotel = i;
+        int index = 0;
+        if (listHotel.get(index).equals(idHotel)){
+            listHotel.get(index).setNoTelepon(noTeleponBaru);
+            return listHotel.get(index);
+        } else {
+            for (HotelModel elemenHotel : listHotel){
+                index++;
+                if (elemenHotel.getIdHotel().equals(idHotel)){
+                    listHotel.get(index-1).setNoTelepon(noTeleponBaru);
+                    return listHotel.get(index-1);
+                }
             }
         }
-        listHotel.get(indexHotel).setNoTelepon(noTeleponBaru);
-        return listHotel.get(indexHotel);
+        listHotel.get(index-1).setNoTelepon(noTeleponBaru);
+        return listHotel.get(index-1);
     }
 
     @Override
     public void deleteHotel(String idHotel){
-        int indexHotel = 0;
-        for (int i = 0; i<listHotel.size(); i++){
-            if (listHotel.get(i).getIdHotel() == idHotel){
-                indexHotel = i;
+
+        for(HotelModel hotel : listHotel){
+            if(((hotel.getIdHotel()).equals(idHotel))){
+                listHotel.remove(hotel);
+                return;
             }
         }
-        listHotel.remove(indexHotel);
     }
 
 }

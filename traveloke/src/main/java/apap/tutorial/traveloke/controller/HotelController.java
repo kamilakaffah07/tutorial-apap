@@ -107,10 +107,9 @@ public class HotelController {
             @PathVariable(value = "idHotel") String idHotel,
             Model model
     ){
-        hotelService.deleteHotel(idHotel);
         // Add variabel id hotel ke 'idHotel' untuk dirender pada thymeleaf
         model.addAttribute("idHotel", idHotel);
-
+        hotelService.deleteHotel(idHotel);
         // Return view template yang digunakan
         return "delete-hotel";
     }
