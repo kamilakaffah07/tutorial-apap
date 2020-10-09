@@ -50,6 +50,7 @@ public class HotelController {
             @PathVariable Long idHotel,
             Model model
     ){
+
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         if (hotel == null){
             int flag = 0; // 0 menandakan update
@@ -67,6 +68,13 @@ public class HotelController {
             @ModelAttribute HotelModel hotel,
             Model model
     ){
+
+        if (hotel == null){
+            int flag = 4;
+            model.addAttribute("flag", flag);
+            return "page-error";
+        }
+
         HotelModel hotelUpdated = hotelService.updateHotel(hotel);
         model.addAttribute("hotel", hotel);
         return "update-hotel";
@@ -77,6 +85,12 @@ public class HotelController {
             @RequestParam(value = "idHotel") Long idHotel,
             Model model
     ){
+        if (idHotel == null){
+            int flag = 3;
+            model.addAttribute("flag", flag);
+            return "page-error";
+        }
+
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
 
@@ -104,6 +118,13 @@ public class HotelController {
 
         // Return view template yang diinginkan
         return "viewall-hotel";
+    }
+
+    @GetMapping(value = "hotel/delete/id-hotel")
+    public String deleteHotelKosong(Model model){
+            int flag = 5;
+            model.addAttribute("flag",flag);
+            return "page-error";
     }
 
     @GetMapping(value = "hotel/delete/id-hotel/{idHotel}")
