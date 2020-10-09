@@ -24,8 +24,15 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public HotelModel getHotelByIdHotel(Long idHotel){
-        return hotelDb.findById(idHotel).get();
+        try {
+            return hotelDb.findById(idHotel).get();
+        } catch(Exception e){
+            return null;
+        }
     }
+
+    @Override
+    public void deleteHotel(Long idHotel) { hotelDb.deleteById(idHotel); }
 
     @Override
     public HotelModel updateHotel(HotelModel hotel) {

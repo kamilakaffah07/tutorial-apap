@@ -1,5 +1,7 @@
 package apap.tutorial.traveloke.model;
 
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

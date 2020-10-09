@@ -51,8 +51,15 @@ public class HotelController {
             Model model
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
-        model.addAttribute("hotel", hotel);
-        return "form-update-hotel";
+        if (hotel == null){
+            int flag = 0; // 0 menandakan update
+            model.addAttribute("idHotel", idHotel);
+            model.addAttribute("flag", flag);
+            return "page-error";
+        } else {
+            model.addAttribute("hotel", hotel);
+            return "form-update-hotel";
+        }
     }
 
     @PostMapping("/hotel/change")
@@ -72,9 +79,18 @@ public class HotelController {
     ){
         HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
         List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
-        model.addAttribute("hotel", hotel);
-        model.addAttribute("listKamar", listKamar);
-        return "view-hotel";
+
+        if (hotel == null){
+            int flag = 1; //1 menandakan view
+            model.addAttribute("idHotel",idHotel);
+            model.addAttribute("flag", flag);
+            return "page-error";
+        } else {
+            model.addAttribute("hotel", hotel);
+            model.addAttribute("listKamar", listKamar);
+            model.addAttribute("jumlahKamar", listKamar.size());
+            return "view-hotel";
+        }
     }
 
     @RequestMapping("/hotel/viewall")
@@ -88,6 +104,31 @@ public class HotelController {
 
         // Return view template yang diinginkan
         return "viewall-hotel";
+    }
+
+    @GetMapping(value = "hotel/delete/id-hotel/{idHotel}")
+    public String deleteHotel(
+            @PathVariable(value = "idHotel") Long idHotel,
+            Model model
+    ){
+        // Add variabel id hotel ke 'idHotel' untuk dirender pada thymeleaf
+        model.addAttribute("idHotel", idHotel);
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+
+        if (hotel == null){
+            model.addAttribute("idHotel",idHotel);
+            int flag = 2;
+            model.addAttribute("flag", flag);
+            return "page-error";
+        } else {
+            int jumlahKamar = hotel.getListKamar().size();
+            if (jumlahKamar > 0){
+                return "not-delete-hotel";
+            } else {
+                hotelService.deleteHotel(idHotel);
+                return "delete-hotel";
+            }
+        }
     }
 
 

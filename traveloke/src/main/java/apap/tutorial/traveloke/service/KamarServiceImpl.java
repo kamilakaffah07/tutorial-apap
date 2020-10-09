@@ -21,7 +21,30 @@ public class KamarServiceImpl implements KamarService {
     }
 
     @Override
+    public void deleteKamar(KamarModel kamar) { kamarDb.delete(kamar); }
+
+    @Override
     public List<KamarModel> findAllKamarByIdHotel(Long idHotel) {
         return kamarDb.findByHotelId(idHotel);
+    }
+
+    @Override
+    public KamarModel getKamarByNoKamar(Long noKamar){
+        return kamarDb.findByNoKamar(noKamar).get();
+    }
+
+    @Override
+    public KamarModel updateKamar(KamarModel kamar) {
+        KamarModel targetKamar = kamarDb.findByNoKamar(kamar.getNoKamar()).get();
+
+        try {
+            targetKamar.setNamaKamar(kamar.getNamaKamar());
+            targetKamar.setTipe(kamar.getTipe());
+            targetKamar.setKapasitasKamar(kamar.getKapasitasKamar());
+            kamarDb.save(targetKamar);
+            return targetKamar;
+        } catch (NullPointerException nullException) {
+            return null;
+        }
     }
 }

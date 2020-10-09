@@ -67,17 +67,12 @@ public class HotelInMemoryService implements HotelService {
         }
         listHotel.get(index-1).setNoTelepon(noTeleponBaru);
         return listHotel.get(index-1);
-    }
+    }*/
 
     @Override
-    public void deleteHotel(String idHotel){
+    public void deleteHotel(Long idHotel){
+        return;
+    }
 
-        for(HotelModel hotel : listHotel){
-            if(((hotel.getIdHotel()).equals(idHotel))){
-                listHotel.remove(hotel);
-                return;
-            }
-        }
-    }*/
 
 }

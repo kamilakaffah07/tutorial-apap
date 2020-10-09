@@ -21,7 +21,7 @@ public interface HotelService {
     //HotelModel udpateNomorTeleponHotel(String idHotel, String noTeleponBaru);
 
     //Method untuk hapus hotel
-    //void deleteHotel(String idHotel);
+    void deleteHotel(Long idHotel);
 
 
 }
