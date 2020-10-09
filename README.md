@@ -28,7 +28,9 @@ Ketika kita mengimplementasikan suatu aplikasi, seharusnya kita lebih fokus kepa
 ### Pertanyaan 4: Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara HotelModel dan KamarModel dibuat?
 
 Pada file KamarModel.java terdapat bagian kode yang membentuk relasi antara HotelModel dan KamarModel. Berikut adalah tampilan kodenya.
+
 ![messageImage_1602230196800](https://user-images.githubusercontent.com/60377103/95562452-5e3d5b80-0a46-11eb-897f-807ee58d6b2b.jpg)
+
 Dari kode tersebut kita dapat mengetahui bahwa KamarModel memiliki relasi ManyToOne dengan HotelModel yang artinya beberapa kamar dapat dimiliki oleh satu hotel tetapi satu kamar tidak bisa dimiliki oleh beberapa hotel. Pada @JoinColumn terlihat bahwa KamarModel memiliki relasi yang direpresentasikan dengan kolom bernama “hotelId” dan referensi kolom “id” pada HotelModel. Dari @JoinColumn terdapat nilai nullable = false yang artinya suatu kamar harus memiliki hotelId. Dengan begitu, suatu kamar tidak dapat exists apabila tidak dimiliki oleh hotel. Terakhir, dari @OnDelete memiliki value action = OnDeleteAction.CASCADE yang artinya terdapat constraints dimana ketika object hotel dihapus maka object kamar yang dimiliki hotel tersebut juga akan dihapus.
 
 ### Pertanyaan 5: Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER!
