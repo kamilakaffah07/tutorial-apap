@@ -65,19 +65,14 @@ public class HotelController {
 
     @PostMapping("/hotel/change")
     public String changeHotelFormSubmit(
+
             @ModelAttribute HotelModel hotel,
             Model model
     ){
-
-        if (hotel == null){
-            int flag = 4;
-            model.addAttribute("flag", flag);
-            return "page-error";
-        }
-
         HotelModel hotelUpdated = hotelService.updateHotel(hotel);
         model.addAttribute("hotel", hotel);
         return "update-hotel";
+
     }
 
     @GetMapping("/hotel/view")
