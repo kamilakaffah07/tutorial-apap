@@ -4,6 +4,29 @@
 
 * Kamila Kaffah - 1806191225 - A
 
+## Tutorial 4
+
+### Pertanyaan 1: Jelaskan perbedaan th:include dan th:replace!
+
+Berdasarkan dokumentasi, jika kita memiliki code <div th:include=”...”> Content here </div> fragment akan diletakan di dalam tag <div>. Sedangkan ketika kita memiliki code <div th:replace=”...”> content here </div> maka tag <div> akan digantikan oleh fragments. Dengan kata lain, Thymeleaf menggunakan th:include untuk mengikutsertakan bagian dari pages lain sebagai fragments. Sedangkan, dengan th:replace, Thymeleaf akan mensubtitusi suatu host tag dengan fragments.
+
+### Pertanyaan 2: Jelaskan apa fungsi dari th:object!
+
+th:object merupakan salah satu tag pada thymeleaf yang berfungsi untuk menampung object yang berasal dari fungsi controller. Bisa juga, th:object digunakan untuk menspesifikasikan object yang akan ditampung oleh submitted form.
+
+### Pertanyaan 3: Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+
+Perbedaan antara * dan $ adalah dalam penggunaannya, *{} dapat mengekspresikan sebagian variable object yang belum dispesifikasikan oleh selected object, sedangkan ${} harus mengekspresikan variable object secara lengkap (eksplisit). Tag `${}` digunakan ketika kita ingin menggunakan variable expressions. Sedangkan `*{}` digunakan ketika kita ingin menggunakan selection expressions. Sama seperti variable expressions, tetapi selection expressions akan dieksekusi pada selection object sebelumnya.
+
+### Pertanyaan 4: Bagaimana kamu menyelesaikan latihan no 3?
+
+Saya menambahkan integer navFlag yang bernilai 0 untuk view hotel, 1 untuk delete hotel, dan 2 untuk update hotel. NavFlag tersebut saya tambahkan pada fungsi home, view, dan update hotel di file HotelController. Selanjutnya, sebelum fungsi mereturn html, saya menambahkan navFlag tersebut ke thymeleaf. Pada file fragment, saya menambahkan kondisional menggunakan tag <div th:if...> dengan menggunakan parameter navFlag tersebut. Jika navFlag sama dengan 0, maka ditambahkan navbar home, jika navFlag bernilai 1 maka ditambahkan navbar view hotel, dan jika navFlag bernilai 2 akan ditambahkan navbar update hotel.
+
+### Sumber
+https://stackoverflow.com/questions/37103958/difference-between-thymeleaf-include-and-replace
+https://stackoverflow.com/questions/57511424/difference-between-and
+https://www.baeldung.com/thymeleaf-in-spring-mvc#:~:text=Handling%20User%20Input,form%20data%20will%20be%20bound.
+
 ## Turoial 3
 
 ### Pertanyaan 1: Pada class KamarDb, terdapat method findAllByHotelId, apakah kegunaan dari method tersebut?
