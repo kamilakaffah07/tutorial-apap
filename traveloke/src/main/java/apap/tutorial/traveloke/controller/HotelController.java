@@ -102,7 +102,7 @@ public class HotelController {
         }
     }
 
-    @RequestMapping("/hotel/viewall")
+    @RequestMapping("/hotel/view-all")
     public String listHotel(Model model){
 
         // Mendapatkan semua HotelModel
