@@ -8,34 +8,36 @@
 </head>
 <body>
     <nav th:replace="fragments/fragment :: navbar"></nav>
-    <h2>Daftar Seluruh Hotel</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>Id Hotel</th>
-            <th>Nama Hotel</th>
-            <th>Alamat Hotel</th>
-            <th>Nomor Telepon</th>
-            <th>View</th>
-            <th>Delete</th>
-            <th>Update</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="hotel, iterationStatus : ${listHotel}">
-            <td th:text="${iterationStatus.count}"></td>
-            <td th:text="${hotel.id}"></td>
-            <td th:text="${hotel.namaHotel}"></td>
-            <td th:text="${hotel.alamat}"></td>
-            <td th:text="${hotel.nomorTelepon}"></td>
-            <td><a class="btn btn-sm btn-primary" th:href="@{/hotel/view/}+${hotel.id}">View Hotel</a></td>
-            <td><a class="btn btn-sm btn-danger" th:href="@{/hotel/delete/id-hotel/}+${hotel.id}">Delete Hotel</a></td>
-            <td><a class="btn btn-sm btn-success" th:href="@{/hotel/change/}+${hotel.id}">Update Hotel</a></td>
-            <hr>
-        </tr>
-        </tbody>
-    </table>
+    <div class="container-fluid">
+        <h2>Daftar Seluruh Hotel</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Id Hotel</th>
+                <th>Nama Hotel</th>
+                <th>Alamat Hotel</th>
+                <th>Nomor Telepon</th>
+                <th>View</th>
+                <th>Delete</th>
+                <th>Update</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="hotel, iterationStatus : ${listHotel}">
+                <td th:text="${iterationStatus.count}"></td>
+                <td th:text="${hotel.id}"></td>
+                <td th:text="${hotel.namaHotel}"></td>
+                <td th:text="${hotel.alamat}"></td>
+                <td th:text="${hotel.nomorTelepon}"></td>
+                <td><a class="btn btn-sm btn-primary" th:href="@{/hotel/view/}+${hotel.id}">View Hotel</a></td>
+                <td><a class="btn btn-sm btn-danger" th:href="@{/hotel/delete/id-hotel/}+${hotel.id}">Delete Hotel</a></td>
+                <td><a class="btn btn-sm btn-success" th:href="@{/hotel/change/}+${hotel.id}">Update Hotel</a></td>
+                <hr>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

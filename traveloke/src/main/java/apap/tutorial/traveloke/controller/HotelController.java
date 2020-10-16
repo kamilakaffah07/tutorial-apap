@@ -26,7 +26,9 @@ public class HotelController {
     private KamarService kamarService;
 
     @GetMapping("/")
-    private String home(){
+    private String home(Model model){
+        int navFlag = 0;
+        model.addAttribute("navFlag", navFlag);
         return "home";
     }
 
@@ -59,6 +61,8 @@ public class HotelController {
             return "page-error";
         } else {
             model.addAttribute("hotel", hotel);
+            int navFlag = 2;
+            model.addAttribute("navFlag", navFlag);
             return "form-update-hotel";
         }
     }
@@ -99,6 +103,8 @@ public class HotelController {
             model.addAttribute("listKamar", listKamar);
             boolean hasKamar = listKamar.size() > 0;
             model.addAttribute("hasKamar", hasKamar);
+            int navFlag = 1;
+            model.addAttribute("navFlag", navFlag);
             return "view-hotel";
         }
     }
@@ -114,6 +120,8 @@ public class HotelController {
         model.addAttribute("listKamar", listKamar);
         boolean hasKamar = listKamar.size() > 0;
         model.addAttribute("hasKamar", hasKamar);
+        int navFlag = 1;
+        model.addAttribute("navFlag", navFlag);
         return "view-hotel";
     }
 
