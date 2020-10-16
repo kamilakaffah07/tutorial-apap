@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Error Page</title>
+</head>
+<body>
+<div th:if="${flag == 0}">
+    <h2 th:text="'Hotel dengan id ' + ${idHotel} + ' tidak ditemukan dan proses update dibatalkan.'"></h2>
+</div>
+
+<div th:if="${flag == 1}">
+    <h2 th:text="'Hotel dengan id ' + ${idHotel} + ' tidak ditemukan dan proses view dibatalkan.'"></h2>
+</div>
+
+<div th:if="${flag == 2}">
+    <h2 th:text="'Hotel dengan id ' + ${idHotel} + ' tidak ditemukan dan proses delete dibatalkan.'"></h2>
+</div>
+
+<div th:if="${flag == 3}">
+    <h2 th:text="'Id hotel kosong dan proses view dibatalkan.'"></h2>
+</div>
+
+<div th:if="${flag == 4}">
+    <h2 th:text="'Id hotel kosong dan proses update dibatalkan.'"></h2>
+</div>
+
+<div th:if="${flag == 5}">
+    <h2 th:text="'Id hotel kosong dan proses delete dibatalkan.'"></h2>
+</div>
+
+<a href="/">Home</a>
+
+
+</body>
+</html>

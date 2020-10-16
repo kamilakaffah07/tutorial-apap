@@ -4,6 +4,46 @@
 
 * Kamila Kaffah - 1806191225 - A
 
+## Turoial 3
+
+### Pertanyaan 1: Pada class KamarDb, terdapat method findAllByHotelId, apakah kegunaan dari method tersebut?
+
+Seperti yang kita tahu, hotel dan kamar memiliki relasi one-to-many dimana object hotel dapat memiliki banyak kamar dan object kamar hanya dapat dimiliki oleh satu hotel. Selain itu, relasi hotel memiliki kamar adalah relasi parsial yang artinya suatu hotel dapat tidak memiliki kamar. Tetapi, relasi kamar dimiliki hotel adalah relasi total yang artinya setiap kamar pasti dimiliki oleh suatu hotel.
+Berdasarkan penjelasan sebelumnya, diketahui bahwa suatu hotel dapat memiliki banyak kamar. Dengan method `findByHotelId`, kita akan mendapatkan suatu listKamar yang berisi seluruh object kamar yang dimiliki oleh hotel dengan id tertentu. Method tersebut digunakan ketika kita memerlukan seluruh list kamar pada suatu hotel untuk ditampilkan. Pada tutorial 3 ini, method `findByHotelId` digunakan pada method `findAllKamarByHotelId` yang ada pada kamarService. Method `findAllKamarByHotelId` dipanggil method viewDetailHotel pada file HotelController (tidak ada method `findAllByHotelId` di KamarDb Kak, adanya method `findByHotelId`).
+
+### Pertanyaan 2: Pada class HotelController, jelaskan perbedaan method addHotelFormPage dan addHotelSubmit?
+
+Terdapat perbedaan antara method addHotelFormPage dan addHotelSubmit, yaitu sebagai berikut.
+- Pada home, terdapat tombol tambah hotel yang ketika diklik akan memanggil controller method `addHotelFormPage`. Lalu, method tersebut akan mereturn template form-add-hotel.html yang memiliki melakukan method POST. Nilai yang dimasukan pada form-add-hotel akan di-POST ketika menekan tombol submit
+- Selanjutnya, ketika menekan tombol submit, method `addHotelSubmit` akan dijalankan. Method tersebut akan GET nilai yang di-POST oleh pada halaman form-add-hotel dan akan memanggil hotelService method addHotel. Dengan begitu, object hotel yang didapatkan akan disimpan ke database hotel. Terakhir, method `addHotelSubmit` akan mereturn template add-hotel.html yang menyatakan hotel berhasil ditambahkan
+
+### Pertanyaan 3: Jelaskan kegunaan dari JPA Repository!
+
+Ketika kita mengimplementasikan suatu aplikasi, seharusnya kita lebih fokus kepada business logic dibandingkan dengan technical complexity dan penulis code secara berulang (boilerplate code). Dengan JPA Repository, kita dapat mengurangi jumlah dari boilerplate code dan membuat implementasi pengembangan layer lebih mudah dan cepat. Berikut adalah beberapa contoh method yang disediakan oleh JPA Repository yang dapat memudahkan kita dalam pengembangan aplikasi.
+- Method untuk update, remove, and persist satu atau multiple Author entities
+- Method untuk mencari satu atau lebih Authors dengan primary keys-nya
+- Method untuk menghitung, mendapatkan, dan menghapus semua Authors
+- Method untuk memeriksa apakah suatu Author dengan primary key tertentu exists dalam suatu database
+
+### Pertanyaan 4: Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara HotelModel dan KamarModel dibuat?
+
+Pada file KamarModel.java terdapat bagian kode yang membentuk relasi antara HotelModel dan KamarModel. Berikut adalah tampilan kodenya.
+
+![messageImage_1602230196800](https://user-images.githubusercontent.com/60377103/95562452-5e3d5b80-0a46-11eb-897f-807ee58d6b2b.jpg)
+
+Dari kode tersebut kita dapat mengetahui bahwa KamarModel memiliki relasi ManyToOne dengan HotelModel yang artinya beberapa kamar dapat dimiliki oleh satu hotel tetapi satu kamar tidak bisa dimiliki oleh beberapa hotel. Pada @JoinColumn terlihat bahwa KamarModel memiliki relasi yang direpresentasikan dengan kolom bernama “hotelId” dan referensi kolom “id” pada HotelModel. Dari @JoinColumn terdapat nilai nullable = false yang artinya suatu kamar harus memiliki hotelId. Dengan begitu, suatu kamar tidak dapat exists apabila tidak dimiliki oleh hotel. Terakhir, dari @OnDelete memiliki value action = OnDeleteAction.CASCADE yang artinya terdapat constraints dimana ketika object hotel dihapus maka object kamar yang dimiliki hotel tersebut juga akan dihapus.
+
+### Pertanyaan 5: Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER!
+
+Ketika kita bekerja dengan Object Relational Mapping (ORM), data fetching/loading dapat diklasifikasikan menjadi dua, yaitu eager dan lazy. Kedua fetching tersebut digunakan dalam Hibernate. Dengan FetchType.EAGER, ketika kita load the User data, semua orders yang berhubungan dengan data tersebut juga akan diproses dan disimpan pada memori. Sedangkan ketika kita menggunakan FetchType.LAZY, OrderDetail data tidak akan diinisiasi dan diproses pada memory sampai terdapat method yang memanggil secara eksplisit. 
+Selanjutnya, terdapat CascadeType.ALL yang memungkinkan pengguna untuk menggunakan semua operasi dari EntityManager yang terdiri dari REMOVE, REFRESH, DETACH, PERSIST pada suatu object dan semua object yang memiliki relasi dengan object tersebut.
+
+### Sumber:
+
+https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/
+https://www.baeldung.com/hibernate-lazy-eager-loading
+
+
 ## Tutorial 2
 
 ### Pertanyaan 1: Cobalah untuk menambahkan sebuah Hotel dengan mengakses link berikut: http://localhost:8080/hotel/add?idHotel=1&namaHotel=Papa%20APAP&alamat=Quanta%20Fasilkom&noTelepon=081xxxApa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.

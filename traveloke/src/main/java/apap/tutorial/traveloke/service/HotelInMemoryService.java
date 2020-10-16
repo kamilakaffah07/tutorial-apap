@@ -27,8 +27,8 @@ public class HotelInMemoryService implements HotelService {
     }
 
     @Override
-    public HotelModel getHotelByIdHotel(String idhotel){
-        int indexx = 0;
+    public HotelModel getHotelByIdHotel(Long idhotel){
+        /**int indexx = 0;
         if (listHotel.get(indexx).getIdHotel().equals(idhotel)){
             return listHotel.get(indexx);
         } else {
@@ -39,11 +39,18 @@ public class HotelInMemoryService implements HotelService {
                 }
             }
         }
-        return listHotel.get(indexx-1);
+        return listHotel.get(indexx-1);*/
+        return null;
+    }
+
+    @Override
+    public HotelModel updateHotel(HotelModel hotel){
+        return null;
     }
 
 
-    @Override
+
+    /**@Override
     public HotelModel udpateNomorTeleponHotel(String idHotel, String noTeleponBaru){
         int index = 0;
         if (listHotel.get(index).equals(idHotel)){
@@ -60,17 +67,12 @@ public class HotelInMemoryService implements HotelService {
         }
         listHotel.get(index-1).setNoTelepon(noTeleponBaru);
         return listHotel.get(index-1);
-    }
+    }*/
 
     @Override
-    public void deleteHotel(String idHotel){
-
-        for(HotelModel hotel : listHotel){
-            if(((hotel.getIdHotel()).equals(idHotel))){
-                listHotel.remove(hotel);
-                return;
-            }
-        }
+    public void deleteHotel(Long idHotel){
+        return;
     }
+
 
 }
