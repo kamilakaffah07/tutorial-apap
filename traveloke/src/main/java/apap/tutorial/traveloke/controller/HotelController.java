@@ -99,9 +99,22 @@ public class HotelController {
             model.addAttribute("listKamar", listKamar);
             boolean hasKamar = listKamar.size() > 0;
             model.addAttribute("hasKamar", hasKamar);
-            System.out.println("masuk" + hasKamar);
             return "view-hotel";
         }
+    }
+
+    @GetMapping(value = "/hotel/view/{idHotel}")
+    public String viewHotelWithPathVariable(
+            @PathVariable(value = "idHotel") Long idHotel,
+            Model model
+    ){
+        HotelModel hotel = hotelService.getHotelByIdHotel(idHotel);
+        List<KamarModel> listKamar = kamarService.findAllKamarByIdHotel(idHotel);
+        model.addAttribute("hotel", hotel);
+        model.addAttribute("listKamar", listKamar);
+        boolean hasKamar = listKamar.size() > 0;
+        model.addAttribute("hasKamar", hasKamar);
+        return "view-hotel";
     }
 
     @RequestMapping("/hotel/view-all")
