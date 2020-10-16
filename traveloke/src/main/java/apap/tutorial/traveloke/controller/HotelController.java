@@ -97,7 +97,9 @@ public class HotelController {
         } else {
             model.addAttribute("hotel", hotel);
             model.addAttribute("listKamar", listKamar);
-            model.addAttribute("jumlahKamar", listKamar.size());
+            boolean hasKamar = listKamar.size() > 0;
+            model.addAttribute("hasKamar", hasKamar);
+            System.out.println("masuk" + hasKamar);
             return "view-hotel";
         }
     }
