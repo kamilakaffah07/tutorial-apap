@@ -8,7 +8,7 @@
 
 ### Pertanyaan 1: Jelaskan perbedaan th:include dan th:replace!
 
-Berdasarkan dokumentasi, jika kita memiliki code <div th:include=”...”> Content here </div> fragment akan diletakan di dalam tag <div>. Sedangkan ketika kita memiliki code <div th:replace=”...”> content here </div> maka tag <div> akan digantikan oleh fragments. Dengan kata lain, Thymeleaf menggunakan th:include untuk mengikutsertakan bagian dari pages lain sebagai fragments. Sedangkan, dengan th:replace, Thymeleaf akan mensubtitusi suatu host tag dengan fragments.
+Berdasarkan dokumentasi, jika kita memiliki code `<div th:include=”...”> Content here </div>` fragment akan diletakan di dalam tag `<div>`. Sedangkan ketika kita memiliki code `<div th:replace=”...”> content here </div>` maka tag `<div>` akan digantikan oleh fragments. Dengan kata lain, Thymeleaf menggunakan `th:include` untuk mengikutsertakan bagian dari pages lain sebagai fragments. Sedangkan, dengan `th:replace`, Thymeleaf akan mensubtitusi suatu host tag dengan fragments.
 
 ### Pertanyaan 2: Jelaskan apa fungsi dari th:object!
 
