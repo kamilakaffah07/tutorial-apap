@@ -4,6 +4,41 @@
 
 * Kamila Kaffah - 1806191225 - A
 
+## Tutorial 5
+
+### Pertanyaan 1: Apa itu Postman? Apa kegunaannya?
+
+Postman adalah tool yang otomatis dan saling berinteraksi dengan HTTP APIs. Aplikasi postman merepresentasikan tampilan dengan friendly GUI interface untuk menyusun requests dan membaca responses. Ia bekerja pada backend dan memastikan bahwa setiap API bekerja dengan baik.
+
+Kegunaan dari aplikasi postman adalah kita bisa memubuat requests dan postman akan menampilkan respons serta memastikannya bahwa respons tersebut merupakan elemen yang diinginkan. Sebagai tool otomatis, ia mengimproves secara drastis dari segi waktu testing dan kualitas dari project. Ia juga membantu dalam deteksi dini bugs yang kemungkinan jika tidak terdeteksi akan menimbulkan kerusakan yang lebih besar pada sistem. 
+
+### Pertanyaan 2: Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+
+Anotasi @JsonProperty digunakan untuk memetakan property names dengan JSON keys selama serialization dan deserialization.
+
+Anotasi @JsonIgnoreProperties digunakan untuk meng-ignores logical properties secara spesifika dalam JSON serialization dan deserialization. Ia dianotasikan pada level kelas.
+
+### Pertanyaan 3: Apa kegunaan atribut WebClient?
+
+Implementasi webClient merupakan bagian dari WebFlux framework. WebClient dapat digunakan untuk membangun dan mengirim setiap tipe dari URI. Selanjutnya, terdapat WebClientBuilder class yang memiliki uri() method yang menyediakan UriBuilder instance sebagai argumen dan digunakan untuk mengkonstruksi URIs. 
+
+### Pertanyaan 4: Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+
+ResponseEntity merepresentasikan HTTP response secara keseluruhan yang berupa status code, headers, dan body. Sebagai hasilnya, kita dapat menggunakannya untuk mengkonfigurasi HTTP response. Jika kita ingin menggunakannya, kita harus mengembalikannya dari endpoint dan Spring akan mengerjakan sisanya. ResponseEntity merupakan tipe generik sehingga kita bisa menggunakan tipe apa saja sebagai response body.
+
+BindingResult merupakan suatu general interface yang objeknya digunakan sebagai argumen untuk memvalidasi method of Validator dalam Controller. Selain itu, BindingResult object juga akan hold the validation errors.
+
+### Sumber
+
+https://www.axelerant.com/resources/team-blog/api-testing-with-postman#
+
+https://dzone.com/articles/jackson-annotations-for-json-part-4-general#
+
+https://www.baeldung.com/spring-response-entity
+
+https://www.javapedia.net/Spring-MVC-Interview-questions/1554
+
+
 ## Tutorial 4
 
 ### Pertanyaan 1: Jelaskan perbedaan th:include dan th:replace!
