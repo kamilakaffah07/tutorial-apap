@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 @Controller
 public class KamarController {
@@ -22,7 +23,7 @@ public class KamarController {
     @Autowired
     private KamarService kamarService;
 
-    @GetMapping("/kamar/add/{idHotel}")
+    /**@GetMapping("/kamar/add/{idHotel}")
     private String addKamarFormPage(
             @PathVariable Long idHotel,
             Model model
@@ -33,7 +34,7 @@ public class KamarController {
         model.addAttribute("kamar", kamar);
 
         return "form-add-kamar";
-    }
+    }*/
 
     /**@GetMapping("/kamar/delete/{noKamar}")
     private String deleteKamar(
@@ -45,6 +46,61 @@ public class KamarController {
         model.addAttribute("noKamar", noKamar);
         return "delete-kamar";
     }*/
+
+    @RequestMapping(value = "/kamar/add/{idHotel}")
+    private String add(@PathVariable(value = "idHotel") Long idHotel, Model model) {
+        model.addAttribute("titleTab", "Add Kamar");
+        HotelModel hotel = new HotelModel();
+        hotel.setListKamar(new ArrayList<KamarModel>());
+        hotel.getListKamar().add(new KamarModel());
+        model.addAttribute("hotel", hotel);
+        model.addAttribute("idHotel", idHotel);
+        return "form-add-kamar";
+    }
+
+    @RequestMapping(value = "/kamar/add/{idHotel}", method = RequestMethod.POST, params= {"save"})
+    private String addMenuSubmit(@PathVariable(value = "idHotel") Long idHotel, @ModelAttribute HotelModel hotel, ModelMap model) {
+        model.addAttribute("titleTab", "Add Menu");
+        HotelModel oldHotel = hotelService.getHotelByIdHotel(idHotel);
+        model.addAttribute("kamarCount", hotel.getListKamar().size());
+
+        model.addAttribute("idHotel", idHotel);
+        for (KamarModel kamar : hotel.getListKamar()) {
+            kamar.setHotel(oldHotel);
+            kamarService.addKamar(kamar);
+        }
+        return "add-kamar";
+    }
+
+    @RequestMapping(value = "/kamar/add/{idHotel}", method = RequestMethod.POST, params={"addRow"})
+    private String addRow(@PathVariable(value = "idHotel") Long idHotel, @ModelAttribute HotelModel hotel, Model model) {
+        model.addAttribute("titleTab", "Add Menu");
+        KamarModel kamar = new KamarModel();
+        hotel.getListKamar().add(kamar);
+        model.addAttribute("hotel", hotel);
+        model.addAttribute("idHotel", idHotel);
+        return "form-add-kamar";
+    }
+
+    @RequestMapping(value = "/kamar/add/{idHotel}", method = RequestMethod.POST, params={"removeRow"})
+    private String removeRow(@PathVariable(value = "idHotel") Long idHotel,@ModelAttribute HotelModel hotel, Model model, HttpServletRequest req) {
+        Integer rowId =  Integer.valueOf(req.getParameter("removeRow"));
+        hotel.getListKamar().remove(rowId.intValue());
+        model.addAttribute("hotel", hotel);
+        model.addAttribute("idHotel", idHotel);
+        return "form-add-kamar";
+    }
+
+    @PostMapping("/kamar/add")
+    private String addKamarSubmit(
+            @ModelAttribute KamarModel kamar,
+            Model model
+    ){
+        kamarService.addKamar(kamar);
+        model.addAttribute("kamar", kamar);
+        return "add-kamar";
+    }
+
 
     @PostMapping(path = "/kamar/delete")
     public String deleteKamarFormSubmit(
@@ -59,7 +115,7 @@ public class KamarController {
         return "delete-kamar";
     }
 
-    @PostMapping("/kamar/add")
+    /**@PostMapping("/kamar/add")
     private String addKamarSubmit(
             @ModelAttribute KamarModel kamar,
             Model model
@@ -67,7 +123,7 @@ public class KamarController {
         kamarService.addKamar(kamar);
         model.addAttribute("kamar", kamar);
         return "add-kamar";
-    }
+    }*/
 
     //CHANGE KAMAR
     @GetMapping("/kamar/change/{noKamar}")
