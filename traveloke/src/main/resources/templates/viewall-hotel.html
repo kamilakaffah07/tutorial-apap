@@ -2,16 +2,42 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <title>View All Hotel</title>
+
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-    <h2>Daftar Seluruh Hotel</h2>
-    <div th:each="hotel: ${listHotel}">
-        <h3 th:text="'Id Hotel: '+ ${hotel.id}"></h3>
-        <h3 th:text="'Nama Hotel: '+ ${hotel.namaHotel}"></h3>
-        <h3 th:text="'Alamat Hotel: '+ ${hotel.alamat}"></h3>
-        <h3 th:text="'Nomor Telepon: '+ ${hotel.nomorTelepon}"></h3>
-        <hr>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+    <div class="container-fluid">
+        <h2>Daftar Seluruh Hotel</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Id Hotel</th>
+                <th>Nama Hotel</th>
+                <th>Alamat Hotel</th>
+                <th>Nomor Telepon</th>
+                <th>View</th>
+                <th>Delete</th>
+                <th>Update</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="hotel, iterationStatus : ${listHotel}">
+                <td th:text="${iterationStatus.count}"></td>
+                <td th:text="${hotel.id}"></td>
+                <td th:text="${hotel.namaHotel}"></td>
+                <td th:text="${hotel.alamat}"></td>
+                <td th:text="${hotel.nomorTelepon}"></td>
+                <td><a class="btn btn-sm btn-primary" th:href="@{/hotel/view/}+${hotel.id}">View Hotel</a></td>
+                <td><a class="btn btn-sm btn-danger" th:href="@{/hotel/delete/id-hotel/}+${hotel.id}">Delete Hotel</a></td>
+                <td><a class="btn btn-sm btn-success" th:href="@{/hotel/change/}+${hotel.id}">Update Hotel</a></td>
+                <hr>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <a href="/">Home</a>
 </body>
 </html>

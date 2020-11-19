@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
+<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 <head>
     <title>Error Page</title>
 </head>
 <body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
 <div th:if="${flag == 0}">
     <h2 th:text="'Hotel dengan id ' + ${idHotel} + ' tidak ditemukan dan proses update dibatalkan.'"></h2>
 </div>
@@ -27,8 +30,6 @@
 <div th:if="${flag == 5}">
     <h2 th:text="'Id hotel kosong dan proses delete dibatalkan.'"></h2>
 </div>
-
-<a href="/">Home</a>
 
 
 </body>

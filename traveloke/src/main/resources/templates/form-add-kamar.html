@@ -3,25 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Form Add Kamar</title>
+
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 <body>
-<h3>Tambah Kamar</h3>
-<form th:action="@{/kamar/add}" th:object="${kamar}" method = "POST">
-    <input type="hidden" th:field="*{hotel}"/>
-    Nama Kamar: <br>
-    <input type="text" name="namaKamar"/>
-    <br>
-    Tipe Kamar : <br>
-    <select name="tipe">
-        <option value="0">Deluxe</option>
-        <option value="1">Executive</option>
-        <option value="2">President Suite</option>
-    </select>
-    <br>
-    Kapasitas Kamar : <br>
-    <input type="number" name="kapasitasKamar"/>
-    <br>
-    <button type = "submit">Submit</button>
-</form>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div class="container-fluid">
+    <h3>Tambah Kamar</h3>
+    <!--<form th:action="@{/kamar/add}" th:object="${kamar}" method = "POST">
+        <input type="hidden" th:field="*{hotel}"/>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Kamar</th>
+                <th>Tipe Kamar</th>
+                <th>Kapasitas Kamar</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="kamar, iterationStatus : ${listKamar}">
+                <td th:text="${iterationStatus.count}"></td>
+                <td th:text="${kamar.noKamar}"></td>
+                <td th:text="${kamar.namaKamar}"></td>
+
+                <td>
+                    <div th:if="${kamar.tipe == 0}">Deluxe</div>
+                    <div th:if="${kamar.tipe == 1}">Executive</div>
+                    <div th:if="${kamar.tipe == 2}">President Suite</div>
+                </td>
+
+                <td th:text="${kamar.kapasitasKamar}"></td>
+                <td><a th:href="@{/kamar/change/}+${kamar.noKamar}">Change Data Kamar</a></td>
+                <td>
+                    <input type="checkbox" th:field="*{listKamar}" th:value="${kamar.noKamar}"/>
+                    <label th:for="${#ids.next('listKamar')}">Delete</label>
+                </td>
+                <hr>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-sm btn-danger">Hapus yang dipilih</button>
+    </form>-->
+
+    <form th:action="@{/kamar/add}" th:object="${kamar}" method = "POST">
+        <input type="hidden" th:field="*{hotel}"/>
+        Nama Kamar: <br>
+        <input type="text" name="namaKamar"/>
+        <br>
+        Tipe Kamar : <br>
+        <select name="tipe">
+            <option value="0">Deluxe</option>
+            <option value="1">Executive</option>
+            <option value="2">President Suite</option>
+        </select>
+        <br>
+        Kapasitas Kamar : <br>
+        <input type="number" name="kapasitasKamar"/>
+        <br>
+        <button type = "submit">Submit</button>
+    </form>
+</div>
 </body>
 </html>
