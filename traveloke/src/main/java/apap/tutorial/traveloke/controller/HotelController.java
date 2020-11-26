@@ -25,12 +25,12 @@ public class HotelController {
     @Autowired
     private KamarService kamarService;
 
-    @GetMapping("/")
+    /**@GetMapping("/")
     private String home(Model model){
         int navFlag = 0;
         model.addAttribute("navFlag", navFlag);
         return "home";
-    }
+    }*/
 
     @GetMapping("/hotel/add")
     public String addHotelFormPage(Model model){
