@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.ArrayUtils;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/user")
@@ -50,7 +53,37 @@ public class UserController {
             size = true;
         }
 
-        if (oldPasswordMatch==true&&confimedPassword==true&&size==true){
+        boolean composition = false;
+        boolean huruf = false;
+        boolean angka = false;
+        String[] listAngka = {"1","2","3","4","5","6","7","8","9","0"};
+        String[] listHuruf = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x",
+                "y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+
+
+        for (int i = 0; i<newPassword.length();i++){
+            if (ArrayUtils.contains(listAngka,newPassword.substring(i,i+1))){
+                angka = true;
+                break;
+            }
+        }
+
+        for (int i = 0; i<newPassword.length();i++){
+            if (ArrayUtils.contains(listHuruf,newPassword.substring(i,i+1))){
+                huruf = true;
+                break;
+            }
+        }
+
+        System.out.println(newPassword.substring(0,1));
+        System.out.println(newPassword.substring(1,2));
+        System.out.println(newPassword.substring(2,3));
+
+        if(angka==true&&huruf==true){
+            composition=true;
+        }
+
+        if (oldPasswordMatch==true&&confimedPassword==true&&size==true&&composition==true){
 
             user.setPassword(newPassword);
             userService.addUser(user);
