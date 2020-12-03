@@ -8,24 +8,20 @@
 
 ### Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
 
-Latihan 1: Saya menghapus baris kode yang memunculkan checkbox di file index.js pada komponen item
+Latihan 1: Saya menghapus baris kode yang memunculkan checkbox di file index.js pada komponen item. Berikut adalah screenshot code yang saya hapus.
 
-Screenshot code yang saya hapus:
 ![image](https://user-images.githubusercontent.com/60377103/101053172-0a6c7000-35ba-11eb-982c-2a55e3ed3cdb.png)
 
-Latihan 2 : Saya menambahkan kode {this.state.favItems.length > 0 && <button type="button" onClick={this.handleDelete}>Delete</button>} pada kontainer yang memunculkan List My Favorites. Kode tersebut memanggil event handler delete yang bekerja dengan cara mengupdate list dengan list kosong. Selain itu, baris kode itu juga mengecek apakah panjang dari suatu list lebih dari 0 atau tidak.
+Latihan 2 : Saya menambahkan kode {this.state.favItems.length > 0 && <button type="button" onClick={this.handleDelete}>Delete</button>} pada kontainer yang memunculkan List My Favorites. Kode tersebut memanggil event handler delete yang bekerja dengan cara mengupdate list dengan list kosong. Selain itu, baris kode itu juga mengecek apakah panjang dari suatu list lebih dari 0 atau tidak. Berikut adalah screenshot code eventhandler-nya.
 
-Berikut adalah screenshot code eventhandler-nya:
 ![image](https://user-images.githubusercontent.com/60377103/101053960-f4ab7a80-35ba-11eb-9074-50a031f048ff.png)
 
-Latihan 3 : Saya membuat event handler baru untuk menghandle kolom kiri dengan cara mengcopy event handler sebelumnya dan menghapus satu baris code conditional else (else newItems.splice(targetInd,1);). Sedangkan untuk kolom kanan, tetap menggunakan event handler yang lama.
+Latihan 3 : Saya membuat event handler baru untuk menghandle kolom kiri dengan cara mengcopy event handler sebelumnya dan menghapus satu baris code conditional else (else newItems.splice(targetInd,1);). Sedangkan untuk kolom kanan, tetap menggunakan event handler yang lama. Berikut adalah screenshot code even handler yang baru.
 
-Berikut adalah screenshot code even handler yang baru:
-![image](https://user-images.githubusercontent.com/60377103/101054353-64216a00-35bb-11eb-9f2c-ef255d9e921f.png)
+![image](https://user-images.githubusercontent.com/60377103/101054353-64216a00-35bb-11eb-9f2c-ef255d9e921f.pn
 
-Latihan 4: Saya mengimport Switch dari antd library dan digunakan untuk membuat toggle. Selanjutnya, saya membuat status checked pada state defaulf false dan constructornya. Lalu, saya membuat handleChange yang mengubah status checked. Event handler tersebut digunakan pada code bagian ketika ingin menampilkan kolom favorite movies. Pada kontainer List fav movies, akan dicheck terlebih dahulu apakah status checked atau tidak. Jika ya maka kolom akan fav movies akan ditampilkan.
+Latihan 4: Saya mengimport Switch dari antd library dan digunakan untuk membuat toggle. Selanjutnya, saya membuat status checked pada state defaulf false dan constructornya. Lalu, saya membuat handleChange yang mengubah status checked. Event handler tersebut digunakan pada code bagian ketika ingin menampilkan kolom favorite movies. Pada kontainer List fav movies, akan dicheck terlebih dahulu apakah status checked atau tidak. Jika ya maka kolom akan fav movies akan ditampilkan. Berikut adalah code pengerjaan no 4 pada App.js.
 
-Berikut adalah code pengerjaan no 4 pada App.js:
 ![image](https://user-images.githubusercontent.com/60377103/101055128-3daffe80-35bc-11eb-9ff6-6ddcc4b38495.png)
 ![image](https://user-images.githubusercontent.com/60377103/101055342-63d59e80-35bc-11eb-9ccf-329b90c83f6c.png)
 ![image](https://user-images.githubusercontent.com/60377103/101055456-7fd94000-35bc-11eb-9f03-d4ced4b37614.png)
