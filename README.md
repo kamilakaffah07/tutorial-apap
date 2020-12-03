@@ -18,7 +18,7 @@ Latihan 2 : Saya menambahkan kode {this.state.favItems.length > 0 && <button typ
 
 Latihan 3 : Saya membuat event handler baru untuk menghandle kolom kiri dengan cara mengcopy event handler sebelumnya dan menghapus satu baris code conditional else (else newItems.splice(targetInd,1);). Sedangkan untuk kolom kanan, tetap menggunakan event handler yang lama. Berikut adalah screenshot code even handler yang baru.
 
-![image](https://user-images.githubusercontent.com/60377103/101054353-64216a00-35bb-11eb-9f2c-ef255d9e921f.pn
+![image](https://user-images.githubusercontent.com/60377103/101054353-64216a00-35bb-11eb-9f2c-ef255d9e921f.png)
 
 Latihan 4: Saya mengimport Switch dari antd library dan digunakan untuk membuat toggle. Selanjutnya, saya membuat status checked pada state defaulf false dan constructornya. Lalu, saya membuat handleChange yang mengubah status checked. Event handler tersebut digunakan pada code bagian ketika ingin menampilkan kolom favorite movies. Pada kontainer List fav movies, akan dicheck terlebih dahulu apakah status checked atau tidak. Jika ya maka kolom akan fav movies akan ditampilkan. Berikut adalah code pengerjaan no 4 pada App.js.
 
