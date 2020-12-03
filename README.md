@@ -4,6 +4,71 @@
 
 * Kamila Kaffah - 1806191225 - A
 
+## Tutorial 7
+
+### Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+
+Latihan 1: Saya menghapus baris kode yang memunculkan checkbox di file index.js pada komponen item. Berikut adalah screenshot code yang saya hapus.
+
+![image](https://user-images.githubusercontent.com/60377103/101053172-0a6c7000-35ba-11eb-982c-2a55e3ed3cdb.png)
+
+Latihan 2 : Saya menambahkan kode {this.state.favItems.length > 0 && <button type="button" onClick={this.handleDelete}>Delete</button>} pada kontainer yang memunculkan List My Favorites. Kode tersebut memanggil event handler delete yang bekerja dengan cara mengupdate list dengan list kosong. Selain itu, baris kode itu juga mengecek apakah panjang dari suatu list lebih dari 0 atau tidak. Berikut adalah screenshot code eventhandler-nya.
+
+![image](https://user-images.githubusercontent.com/60377103/101053960-f4ab7a80-35ba-11eb-9074-50a031f048ff.png)
+
+Latihan 3 : Saya membuat event handler baru untuk menghandle kolom kiri dengan cara mengcopy event handler sebelumnya dan menghapus satu baris code conditional else (else newItems.splice(targetInd,1);). Sedangkan untuk kolom kanan, tetap menggunakan event handler yang lama. Berikut adalah screenshot code even handler yang baru.
+
+![image](https://user-images.githubusercontent.com/60377103/101054353-64216a00-35bb-11eb-9f2c-ef255d9e921f.png)
+
+Latihan 4: Saya mengimport Switch dari antd library dan digunakan untuk membuat toggle. Selanjutnya, saya membuat status checked pada state defaulf false dan constructornya. Lalu, saya membuat handleChange yang mengubah status checked. Event handler tersebut digunakan pada code bagian ketika ingin menampilkan kolom favorite movies. Pada kontainer List fav movies, akan dicheck terlebih dahulu apakah status checked atau tidak. Jika ya maka kolom akan fav movies akan ditampilkan. Berikut adalah code pengerjaan no 4 pada App.js.
+
+![image](https://user-images.githubusercontent.com/60377103/101055128-3daffe80-35bc-11eb-9ff6-6ddcc4b38495.png)
+![image](https://user-images.githubusercontent.com/60377103/101055342-63d59e80-35bc-11eb-9ccf-329b90c83f6c.png)
+![image](https://user-images.githubusercontent.com/60377103/101055456-7fd94000-35bc-11eb-9f03-d4ced4b37614.png)
+
+Latihan 5: Saya menambahkan dua baris kode yang pertama-tama ia mengecek apakah jumlah item di List Fav Movies kosong atau tidak. Jika 0, maka saya menambahkan pesan bahwa list masih kosong. Dua baris kode tersebut saya letakkan di dalam kontainer List fav movies. 
+Berikut adalah kedua kode tersebut.
+![image](https://user-images.githubusercontent.com/60377103/101057028-2b36c480-35be-11eb-93a7-468a39eb7bcb.png)
+
+### Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
+
+Prop merupakan singkatan dari property yang mirip dengan konsep tag pada HTML. Pada component class, prop adalah property dari class itu sendiri yang diakses melalui keyword 'this'. Pada functional component, prop ini adalah parameternya. Prop bersifat read-only. Sebagai contoh, pada functional component, function tersebut hanya bisa membaca parameter dan tidak bisa mengubahnya.
+
+State adalah data private sebuah component. Data tersebut hanya tersedia pada componentnya dan tidak bisa diakses dari component lain. Component dapat merubah statenya sendiri. Pada functional component, state tidak dimiliki (stateless). Hal itu karena dengan function menyebabkan codenya lebih ringkas.
+
+### Apa keuntungan menggunakan component (e.g. List, Item) di React? Berikan contohnya!
+
+Salah satu keuntungan dari penggunaan component pada react adalah component yang bisa digunakan kembali (reusable). Sebagai contoh: pada tutorial ini, component item dan list digunakan berkali-kali pada aplikasi react. Jadi, sebagai developer, kita tidak perlu menuliskan kembali baris code pada file App.js. 
+
+### Menurut kamu, apa saja kelebihan menggunakan React dalam pengembangan web?
+
+Berikut adalah kelebihan penggunaan reactt:
+
+- React memiliki JavaScript Library: adanya JavaScript Library yang kaya memberikan fleksibilitas lebih kepada developer untuk memilih UI yang mereka inginkan
+
+- Aplikasi React mudah untuk diuji: hal tersebut menawarkan developer untuk dapat menguji dan men-debug kode mereka dengan bantuan alat asli
+
+- Library dan komunitas yang luas: React memiliki sangat banyak Library di NPM dan memiliki dukungan komunitas online yang luas di seluruh penjuru dunia
+
+- Komponen reusable: setiap component pada React memiliki logika dan kontrolnya sendiri. Component tersebut bertanggung jawab mengeluarkan sepotong kecil kode HTML yang bis digunakan kembali
+
+### Menurut kamu, apa saja kekurangan menggunakan React dalam pengembangan web?
+
+Berikut adalah beberapa kekurangan dalam penggunaan React:
+
+-Dokumentasi yang buruk: pengembangan teknologi React terus diperbaharui sehingga tidak ada waktu untuk membuat dokumentasi yang tepat. 
+
+-View bagian: react hanya mencakup UI layer saja dan tidak ada yang lain. Kita memerlukan beberapa teknologi lain untuk pengembangan proyek tersebut.
+
+-Laju pembangunan yang tinggi: lingkungan yang terus berubah dengan cepat dapat menyebabkan beberapa developer merasa tidak nyaman untuk mempelajari kembali cara-cara yang baru. Developer perlu selalu belajar untuk mengikuti perkembangan react yang cepat. 
+
+### Sumber:
+
+https://medium.com/coderupa/react-prop-state-apa-bedanya-7ee61df8257f
+
+https://www.konsepkoding.com/2020/08/1-pengenalan-reactjs-kekurangan-dan.html
+
+
 ## Tutorial 6
 
 ### Pertanyaan 1: Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?
