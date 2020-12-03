@@ -4,6 +4,31 @@
 
 * Kamila Kaffah - 1806191225 - A
 
+## Tutorial 6
+
+### Pertanyaan 1: Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?
+
+Otentikasi merupakan proses pembuktian identitas seorang user. Contohnya dengan menggunakan login username dan password. Sedangkan Otorisasi adalah proses yang akan terjadi setelah user teridentifikasi (sudah melewati proses Otentikasi). Proses Otorisasi akan memberikan hak kepada seorang user untuk dapat mengakses fitur-fitur pada sistem.
+Implementasi Otorisasi ada pada kode di kelas WebSecurityConfig.java dan fungsi cofigure yang mengoverride fungsi kelas WebSeurityConfigurerAdapter. Sedangkan proses Otentikasi diimplementasikan pada kode bagian login.html, PageController, dan WebSecurityConfig.java (fungsi configureGlobal/configAuthentication).
+
+### Pertanyaan 2: Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.
+
+BCryptPasswordEncoder merupakan fungsi yang melakukan enkripsi password dengan cara hashing-code dengan algoritma BCrypt. Tujuan dari fungsi BCryptPasswordEncoder adalah untuk mengamankan password agar tidak terbaca oleh orang lain seperti hacker.
+
+### Pertanyaan 3: Jelaskan secara singkat apa itu UUID beserta penggunaannya!
+
+UUID merupakan singkatan dari Universally Unique Identifier yang berarti identifier tersebut bersifat unik secara global. Penggunaan UUID sendiri ditujukan untuk mengidentifikasi informasi yang ada di sistem komputer.
+
+### Pertanyaan 4: Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?
+
+UserDetailsServiceImpl class berguna untuk pengimplementasian UserDetails interface dari Spring Security. Terdapat kemudahan yang diberikan oleh interface UserDetails, yaitu developer bisa mengambil dan menyimpan segala bentuk informasi secara langsung, baik yang secure maupun non-secure. Informasi tersebut disimpan dan dienkapsulasi menjadi Authentication Object. Sementara class UserRoleServiceImpl berbeda dengan UserDetailsServiceImpl, dimana UserRoleServiceImpl mengharuskan developer untuk mengidentifikasi informasi yang perlu diambil dan disimpan.
+Selain itu, UserDetailsServiceImpl juga dibuat agar kita dapat memiliki service mengenai user details kita sendiri. Hal tersebut dilakukan dengan cara mendefinisikan ulang fungsi loadUserByUsername(fungsi pada UserDetailsService).
+
+### Sumber
+
+https://degananda.com/perbedaan-antara-autentikasi-dan-autorisasi-dalam-dunia-software-engineering/
+wikipedia.org
+
 ## Tutorial 5
 
 ### Pertanyaan 1: Apa itu Postman? Apa kegunaannya?
