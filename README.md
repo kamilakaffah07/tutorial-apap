@@ -30,6 +30,10 @@ Berikut adalah code pengerjaan no 4 pada App.js:
 ![image](https://user-images.githubusercontent.com/60377103/101055342-63d59e80-35bc-11eb-9ccf-329b90c83f6c.png)
 ![image](https://user-images.githubusercontent.com/60377103/101055456-7fd94000-35bc-11eb-9f03-d4ced4b37614.png)
 
+Latihan 5: Saya menambahkan dua baris kode yang pertama-tama ia mengecek apakah jumlah item di List Fav Movies 0 atau tidak. Jika 0, maka saya menambahkan pesan bahwa list masih kosong. Dua baris kode tersebut saya letakkan di dalam kontainer List fav movies. Berikut adalah kedua kode tersebut.
+{this.state.favItems.length === 0 && <h4 className="text-center mt-3 mb-0" >Belum ada item yang dipilih</h4>}
+{this.state.favItems.length === 0 && <p className="text-center">Klik salah satu item di Movie List</p>}
+
 ### Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
 
 Prop merupakan singkatan dari property yang mirip dengan konsep tag pada HTML. Pada component class, prop adalah property dari class itu sendiri yang diakses melalui keyword 'this'. Pada functional component, prop ini adalah parameternya. Prop bersifat read-only. Sebagai contoh, pada functional component, function tersebut hanya bisa membaca parameter dan tidak bisa mengubahnya.
