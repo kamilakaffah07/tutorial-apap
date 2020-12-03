@@ -8,7 +8,7 @@
 
 ### Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
 
-Latian 1: Saya menghapus baris kode yang memunculkan checkbox di file index.js pada komponen item
+Latihan 1: Saya menghapus baris kode yang memunculkan checkbox di file index.js pada komponen item
 
 Screenshot code yang saya hapus:
 ![image](https://user-images.githubusercontent.com/60377103/101053172-0a6c7000-35ba-11eb-982c-2a55e3ed3cdb.png)
@@ -30,9 +30,9 @@ Berikut adalah code pengerjaan no 4 pada App.js:
 ![image](https://user-images.githubusercontent.com/60377103/101055342-63d59e80-35bc-11eb-9ccf-329b90c83f6c.png)
 ![image](https://user-images.githubusercontent.com/60377103/101055456-7fd94000-35bc-11eb-9f03-d4ced4b37614.png)
 
-Latihan 5: Saya menambahkan dua baris kode yang pertama-tama ia mengecek apakah jumlah item di List Fav Movies 0 atau tidak. Jika 0, maka saya menambahkan pesan bahwa list masih kosong. Dua baris kode tersebut saya letakkan di dalam kontainer List fav movies. Berikut adalah kedua kode tersebut.
-{this.state.favItems.length === 0 && <h4 className="text-center mt-3 mb-0" >Belum ada item yang dipilih</h4>}
-{this.state.favItems.length === 0 && <p className="text-center">Klik salah satu item di Movie List</p>}
+Latihan 5: Saya menambahkan dua baris kode yang pertama-tama ia mengecek apakah jumlah item di List Fav Movies kosong atau tidak. Jika 0, maka saya menambahkan pesan bahwa list masih kosong. Dua baris kode tersebut saya letakkan di dalam kontainer List fav movies. 
+Berikut adalah kedua kode tersebut.
+![image](https://user-images.githubusercontent.com/60377103/101057028-2b36c480-35be-11eb-93a7-468a39eb7bcb.png)
 
 ### Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
 
